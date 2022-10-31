@@ -2,13 +2,13 @@ import { StyleSheet, Text, View, Pressable } from "react-native";
 import React from "react";
 
 type Props = {
-  children: string;
+  children: any;
   onPress: () => void;
 };
 
 const PrimaryButton = (props: Props) => {
   return (
-    <Pressable onPress={props.onPress}>
+    <Pressable style={({pressed}) => pressed && styles.pressedButton} onPress={props.onPress}>
       <View style={styles.buttonContainer}>
         <Text style={styles.text}>{props.children}</Text>
       </View>
@@ -29,5 +29,10 @@ const styles = StyleSheet.create({
   },
   text: {
     textAlign: "center",
+
   },
+  pressedButton: {
+    opacity: 0.3,
+    backgroundColor: "black"
+  }
 });

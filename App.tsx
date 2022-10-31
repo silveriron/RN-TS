@@ -1,8 +1,22 @@
-import { StyleSheet } from "react-native";
-import GameStartScreens from "./screens/GameStartScreens";
+import { StyleSheet, Text, View, SafeAreaView, StatusBar } from 'react-native'
+import React from 'react'
+import CategoryScreen from './screens/CategoryScreen'
 
-export default function App() {
-  return <GameStartScreens />;
+type Props = {}
+
+const App = (props: Props) => {
+  return (
+    <>
+    <SafeAreaView>
+      <CategoryScreen/>
+    </SafeAreaView>
+    <StatusBar 
+    barStyle={'dark-content'}
+    />
+    </>
+  )
 }
 
-const styles = StyleSheet.create({});
+export default App
+
+const styles = StyleSheet.create({})
