@@ -1,5 +1,5 @@
 export type RootStackParamList = {
-  CategoryScreen: undefined;
+  DrawerScreen: undefined;
   OverviewScreen: { categoryId: string };
   MealDetailScreen: { mealId: string };
 };
