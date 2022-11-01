@@ -1,13 +1,24 @@
 import { StyleSheet, Text, View, Pressable, Platform } from "react-native";
 import React from "react";
+import { useNavigation } from "@react-navigation/native";
+import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import {RootStackParamList} from '../types/RootStackParamList'
 
 type Props = {
   title: string;
   color: string;
-  onPress: () => void;
+  id: string;
 };
 
-const CategoryGrid = ({ title, color, onPress }: Props) => {
+
+
+const CategoryGrid = ({ title, color, id }: Props) => {
+  const navigations = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
+
+  const pressHandler =() => {
+  navigations.navigate("OverviewScreen", {categoryId: id})
+  }
+
   return (
     <View style={[styles.gridItem]}>
       <Pressable
@@ -17,7 +28,7 @@ const CategoryGrid = ({ title, color, onPress }: Props) => {
           pressed && styles.pressed,
           { backgroundColor: color },
         ]}
-        onPress={onPress}
+        onPress={pressHandler}
       >
         <View style={styles.innerBox}>
           <Text style={styles.title}>{title}</Text>
